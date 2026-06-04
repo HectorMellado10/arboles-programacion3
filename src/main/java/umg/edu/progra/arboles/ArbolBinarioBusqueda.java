@@ -397,6 +397,26 @@ private int lcaRecursivo(Nodo nodo, int a, int b) {
  }
  return nodo.dato;
 }
+
+//============================================================
+//PROBLEMA 5 — Espejo / Inversión del árbol
+//============================================================
+
+public void invertir() {
+ invertirRecursivo(raiz);
+}
+
+private void invertirRecursivo(Nodo nodo) {
+ if (nodo == null) {
+     return;
+ }
+ Nodo temp = nodo.izquierdo;
+ nodo.izquierdo = nodo.derecho;
+ nodo.derecho = temp;
+
+ invertirRecursivo(nodo.izquierdo);
+ invertirRecursivo(nodo.derecho);
+}
     private static class ColaNodos {
         private NodoCola frente;
         private NodoCola fondo;

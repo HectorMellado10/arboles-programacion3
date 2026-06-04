@@ -141,6 +141,31 @@ public class Principal {
         } catch (IllegalArgumentException e) {
             System.out.println("IllegalArgumentException: " + e.getMessage());
         }
+        
+        System.out.println("\n========================================");
+        System.out.println("PROBLEMA 5 — invertir() espejo");
+        System.out.println("========================================");
+
+        ArbolBinarioBusqueda a5 = new ArbolBinarioBusqueda();
+        for (int v : new int[]{ 50, 30, 70, 20, 40, 60, 80, 10 }) {
+            a5.insertar(v);
+        }
+
+        System.out.println("ANTES de invertir:");
+        a5.imprimirArbol();
+        System.out.print("InOrden: ");
+        a5.inOrden();
+
+        a5.invertir();
+
+        System.out.println("\nDESPUES de invertir:");
+        a5.imprimirArbol();
+        System.out.print("InOrden: ");
+        a5.inOrden();
+
+        a5.invertir();
+        System.out.print("\nInvertido dos veces (restaurado): ");
+        a5.inOrden();
         /*
          * Ejercicios
          *
