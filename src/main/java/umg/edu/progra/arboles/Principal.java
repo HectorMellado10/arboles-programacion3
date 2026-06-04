@@ -122,6 +122,25 @@ public class Principal {
         a3.getRaiz().derecho.dato = 25; // 70 pasa a ser 25, viola la propiedad
         System.out.println("\nBST roto (nodo 70 cambiado a 25):");
         System.out.println("esBSTValido() = " + a3.esBSTValido());
+        
+        System.out.println("\n========================================");
+        System.out.println("PROBLEMA 4 — ancestroComunMasBajo (LCA)");
+        System.out.println("========================================");
+
+        ArbolBinarioBusqueda a4 = new ArbolBinarioBusqueda();
+        for (int v : new int[]{ 50, 30, 70, 20, 40, 60, 80, 10 }) {
+            a4.insertar(v);
+        }
+        System.out.println("LCA(10, 40) esperado 30 -> " + a4.ancestroComunMasBajo(10, 40));
+        System.out.println("LCA(10, 80) esperado 50 -> " + a4.ancestroComunMasBajo(10, 80));
+        System.out.println("LCA(60, 80) esperado 70 -> " + a4.ancestroComunMasBajo(60, 80));
+
+        System.out.print("LCA(10, 99) con 99 inexistente -> ");
+        try {
+            a4.ancestroComunMasBajo(10, 99);
+        } catch (IllegalArgumentException e) {
+            System.out.println("IllegalArgumentException: " + e.getMessage());
+        }
         /*
          * Ejercicios
          *

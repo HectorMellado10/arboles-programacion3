@@ -373,6 +373,30 @@ private boolean esBSTValido(Nodo nodo, int min, int max) {
  return esBSTValido(nodo.izquierdo, min, nodo.dato)
      && esBSTValido(nodo.derecho, nodo.dato, max);
 }
+
+//============================================================
+//PROBLEMA 4 — Ancestro Común Más Bajo (LCA)
+//============================================================
+
+public int ancestroComunMasBajo(int a, int b) {
+ if (!contiene(a)) {
+     throw new IllegalArgumentException("El valor " + a + " no existe en el arbol.");
+ }
+ if (!contiene(b)) {
+     throw new IllegalArgumentException("El valor " + b + " no existe en el arbol.");
+ }
+ return lcaRecursivo(raiz, a, b);
+}
+
+private int lcaRecursivo(Nodo nodo, int a, int b) {
+ if (a < nodo.dato && b < nodo.dato) {
+     return lcaRecursivo(nodo.izquierdo, a, b);
+ }
+ if (a > nodo.dato && b > nodo.dato) {
+     return lcaRecursivo(nodo.derecho, a, b);
+ }
+ return nodo.dato;
+}
     private static class ColaNodos {
         private NodoCola frente;
         private NodoCola fondo;
