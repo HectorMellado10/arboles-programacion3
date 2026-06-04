@@ -86,6 +86,26 @@ public class Principal {
         System.out.println("tamanio()     = " + arbol.tamanio());
         System.out.println("contarNodos() = " + arbol.contarNodos());
         System.out.println("Coinciden: " + (arbol.tamanio() == arbol.contarNodos()));
+        
+        System.out.println("\n========================================");
+        System.out.println("PROBLEMA 2 — esBalanceado()");
+        System.out.println("========================================");
+
+        // Arbol balanceado (el que ya tenemos)
+        ArbolBinarioBusqueda a2 = new ArbolBinarioBusqueda();
+        for (int v : new int[]{ 50, 30, 70, 20, 40, 60, 80, 10 }) {
+            a2.insertar(v);
+        }
+        System.out.println("Arbol { 50,30,70,20,40,60,80,10 }:");
+        System.out.println("esBalanceado() = " + a2.esBalanceado());
+
+        // Arbol desbalanceado: cadena hacia la derecha
+        ArbolBinarioBusqueda a2b = new ArbolBinarioBusqueda();
+        for (int v : new int[]{ 1, 2, 3, 4, 5 }) {
+            a2b.insertar(v);
+        }
+        System.out.println("\nArbol { 1,2,3,4,5 } (cadena):");
+        System.out.println("esBalanceado() = " + a2b.esBalanceado());
         /*
          * Ejercicios
          *

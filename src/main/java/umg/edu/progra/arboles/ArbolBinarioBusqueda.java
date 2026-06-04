@@ -331,6 +331,29 @@ public class ArbolBinarioBusqueda {
      return 1 + contarNodosRecursivo(nodo.izquierdo) + contarNodosRecursivo(nodo.derecho);
  }
  
+//============================================================
+//PROBLEMA 2 — ¿Está balanceado?
+//============================================================
+
+public boolean esBalanceado() {
+  return alturaBalanceada(raiz) != -2;
+}
+
+private int alturaBalanceada(Nodo nodo) {
+  if (nodo == null) {
+      return -1;
+  }
+  int altIzq = alturaBalanceada(nodo.izquierdo);
+  if (altIzq == -2) return -2;
+
+  int altDer = alturaBalanceada(nodo.derecho);
+  if (altDer == -2) return -2;
+
+  int diferencia = altIzq - altDer;
+  if (diferencia > 1 || diferencia < -1) return -2;
+
+  return 1 + (altIzq > altDer ? altIzq : altDer);
+}
     private static class ColaNodos {
         private NodoCola frente;
         private NodoCola fondo;
