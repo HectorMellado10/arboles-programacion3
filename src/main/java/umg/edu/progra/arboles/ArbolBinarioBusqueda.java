@@ -354,6 +354,25 @@ private int alturaBalanceada(Nodo nodo) {
 
   return 1 + (altIzq > altDer ? altIzq : altDer);
 }
+
+//============================================================
+//PROBLEMA 3 — Validar que sea un BST
+//============================================================
+
+public boolean esBSTValido() {
+ return esBSTValido(raiz, Integer.MIN_VALUE, Integer.MAX_VALUE);
+}
+
+private boolean esBSTValido(Nodo nodo, int min, int max) {
+ if (nodo == null) {
+     return true;
+ }
+ if (nodo.dato <= min || nodo.dato >= max) {
+     return false;
+ }
+ return esBSTValido(nodo.izquierdo, min, nodo.dato)
+     && esBSTValido(nodo.derecho, nodo.dato, max);
+}
     private static class ColaNodos {
         private NodoCola frente;
         private NodoCola fondo;

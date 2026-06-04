@@ -106,6 +106,22 @@ public class Principal {
         }
         System.out.println("\nArbol { 1,2,3,4,5 } (cadena):");
         System.out.println("esBalanceado() = " + a2b.esBalanceado());
+        
+        System.out.println("\n========================================");
+        System.out.println("PROBLEMA 3 — esBSTValido()");
+        System.out.println("========================================");
+
+        ArbolBinarioBusqueda a3 = new ArbolBinarioBusqueda();
+        for (int v : new int[]{ 50, 30, 70, 20, 40, 60, 80, 10 }) {
+            a3.insertar(v);
+        }
+        System.out.println("BST construido correctamente:");
+        System.out.println("esBSTValido() = " + a3.esBSTValido());
+
+        // Romper el BST manualmente
+        a3.getRaiz().derecho.dato = 25; // 70 pasa a ser 25, viola la propiedad
+        System.out.println("\nBST roto (nodo 70 cambiado a 25):");
+        System.out.println("esBSTValido() = " + a3.esBSTValido());
         /*
          * Ejercicios
          *
